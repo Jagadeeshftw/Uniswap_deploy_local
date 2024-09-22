@@ -17,8 +17,14 @@ contract DeployTokenScript is Script {
         vm.startBroadcast();
 
         tether = new Tether();
+        console.log("Tether deployed at:", address(tether));
+
         usdCoin = new UsdCoin();
+        console.log("USDC deployed at:", address(usdCoin));
+
         wrappedBitcoin = new WrappedBitcoin();
+        console.log("Wrapped Bitcoin deployed at:", address(wrappedBitcoin));
+
         vm.stopBroadcast();
     }
 }
