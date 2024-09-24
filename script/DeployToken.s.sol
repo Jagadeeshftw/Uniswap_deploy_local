@@ -30,22 +30,6 @@ contract DeployTokenScript is Script {
         wrappedBitcoin = new WrappedBitcoin();
         console.log("Wrapped Bitcoin deployed at:", address(wrappedBitcoin));
 
-        // Mint tokens to the addresses
-        tether.mint(addr1, 1000 * 10**18); // Mint 1000 Tether to addr1
-        tether.mint(addr2, 1000 * 10**18); // Mint 1000 Tether to addr2
-        console.log("Minted 1000 Tether to:", addr1);
-        console.log("Minted 1000 Tether to:", addr2);
-
-        usdCoin.mint(addr1, 500 * 10**6);  // Mint 500 USDC to addr1 (USDC has 6 decimals)
-        usdCoin.mint(addr2, 500 * 10**6);  // Mint 500 USDC to addr2
-        console.log("Minted 500 USDC to:", addr1);
-        console.log("Minted 500 USDC to:", addr2);
-
-        wrappedBitcoin.mint(addr1, 10 * 10**8);  // Mint 10 WBTC to addr1 (WBTC has 8 decimals)
-        wrappedBitcoin.mint(addr2, 10 * 10**8);  // Mint 10 WBTC to addr2
-        console.log("Minted 10 WBTC to:", addr1);
-        console.log("Minted 10 WBTC to:", addr2);
-
         vm.stopBroadcast();
     }
 }
