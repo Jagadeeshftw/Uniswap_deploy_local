@@ -1,8 +1,7 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8;
+pragma solidity >=0.8.5;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "./interfaces/Uniswap.sol";
 import {WETH} from "solmate/tokens/WETH.sol";
 import {IUniswapV2Router02} from "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol";
 
