@@ -61,6 +61,26 @@ Before you begin, ensure you have the following installed:
 3. **Output**:
    After deployment, you will get contract addresses for the factory, router, and tokens. Save these addresses for interacting with Uniswap later.
 
+### Generating the Init Code Hash for Uniswap V2 Pair
+
+Before running `forge test`, follow these steps to get the `init_code_hash` for Uniswap V2 Pair:
+
+1. **Get the Bytecode**:
+   Navigate to the following path to find the Uniswap V2 Pair contract's deployment bytecode:
+   ```
+   Uniswap_deploy_local/out/UniswapV2Pair.sol/UniswapV2Pair.json
+   ```
+
+2. **Generate the Init Code Hash**:
+   1. Copy the deployment bytecode from the above JSON file.
+   2. Visit [this online Keccak-256 tool](https://emn178.github.io/online-tools/keccak_256.html).
+   3. Paste the copied bytecode into the tool.
+   4. Ensure the input type is set to "hex" (not "text").
+   5. The output will be the `keccak256` hash of the bytecode, which will serve as your `init_code_hash`.
+
+3. **Update the Init Code Hash**:
+   Replace the static `init_code_hash` in the `pairFor` function (in `UniswapV2Library`) with the newly generated hash before running the tests.
+
 ### Usage
 
 #### Interacting with the Contracts
@@ -96,3 +116,4 @@ If you'd like to contribute to this project, please follow these steps:
 ### License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
